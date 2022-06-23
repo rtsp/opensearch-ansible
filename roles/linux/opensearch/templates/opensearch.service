@@ -12,6 +12,7 @@ WorkingDirectory={{ os_home }}
 User={{ os_user }}
 Group={{ os_user }}
 
+Environment=OPENSEARCH_PATH_CONF={{ os_conf_dir }}
 ExecStart={{ os_home }}/bin/opensearch -p {{ os_home }}/opensearch.pid -q
 
 StandardOutput=journal
