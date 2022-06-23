@@ -1,3 +1,3 @@
 # Ansible inventory
-inventory/*
-!inventory/opensearch
+inventories/*
+!inventories/opensearch
