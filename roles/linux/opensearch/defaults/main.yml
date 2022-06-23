@@ -14,6 +14,8 @@ populate_inventory_to_hosts_file: true
 
 os_home: /usr/share/opensearch
 os_conf_dir: /usr/share/opensearch/config
+os_data_dir: "{{ os_home }}/data"
+os_logs_dir: "{{ os_home }}/logs"
 os_plugin_bin_path: /usr/share/opensearch/bin/opensearch-plugin
 os_sec_plugin_conf_path: /usr/share/opensearch/plugins/opensearch-security/securityconfig
 os_sec_plugin_tools_path: /usr/share/opensearch/plugins/opensearch-security/tools

@@ -2,6 +2,9 @@ cluster.name: "{{ os_cluster_name }}"
 
 node.name: "{{ inventory_hostname }}"
 
+path.data: "{{ os_data_dir }}"
+path.logs: "{{ os_logs_dir }}"
+
 network.host:
 - 127.0.0.1
 - "{{ hostvars[inventory_hostname]['ip'] }}"

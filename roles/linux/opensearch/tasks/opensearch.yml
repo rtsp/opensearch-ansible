@@ -24,6 +24,36 @@
   command: chdir=/tmp/ tar -xvzf opensearch.tar.gz -C "{{ os_home }}" --strip-components=1
   when: created_home.changed
 
+- name: OpenSearch Install | Create config directory
+  file:
+    path: "{{ os_conf_dir }}"
+    state: directory
+    recurse: true
+    owner: "{{ os_user }}"
+    group: "{{ os_user }}"
+    mode: 0750
+  register: created_config
+
+- name: OpenSearch Install | Create data directory
+  file:
+    path: "{{ os_data_dir }}"
+    state: directory
+    recurse: true
+    owner: "{{ os_user }}"
+    group: "{{ os_user }}"
+    mode: 0750
+  register: created_data
+
+- name: OpenSearch Install | Create logs directory
+  file:
+    path: "{{ os_logs_dir }}"
+    state: directory
+    recurse: true
+    owner: "{{ os_user }}"
+    group: "{{ os_user }}"
+    mode: 0750
+  register: created_logs
+
 - name: OpenSearch Install | Copy Configuration File
   blockinfile:
     block: "{{ lookup('template', 'templates/opensearch-{{ cluster_type }}.yml') }}"
