@@ -55,6 +55,8 @@
   copy:
     src: "/tmp/opensearch-nodecerts/config/{{ item }}"
     dest: "{{ os_conf_dir }}"
+    owner: "{{ os_user }}"
+    group: "{{ os_user }}"
     mode: 0600
   with_items:
     - root-ca.pem
