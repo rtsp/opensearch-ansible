@@ -80,3 +80,7 @@
   template:
     src: opensearch.service
     dest: "{{ systemctl_path }}/opensearch.service"
+
+- name: OpenSearch Install | reload systemd daemon
+  systemd:
+    daemon_reload: true
