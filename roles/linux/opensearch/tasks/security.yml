@@ -113,6 +113,13 @@
   pause:
     seconds: 3
 
+- name: Security Plugin configuration | Create directory for opensearch security internal users template
+  file:
+    dest: "{{ os_sec_plugin_conf_path }}"
+    state: directory
+  run_once: true
+  when: configuration.changed
+
 - name: Security Plugin configuration | Copy the opensearch security internal users template
   template:
     src: internal_users.yml
