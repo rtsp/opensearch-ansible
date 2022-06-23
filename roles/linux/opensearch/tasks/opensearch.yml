@@ -42,13 +42,13 @@
     owner: "{{ os_user }}"
     group: "{{ os_user }}"
     remote_src: true
-  when: os_conf_dir != vars[os_home + "/config"]
+  when: "os_conf_dir != vars[os_home + '/config']"
 
 - name: OpenSearch Install | Remove default config directory
   file:
     path: "{{ os_home }}/config"
     state: absent
-  when: os_conf_dir != vars[os_home + "/config"]
+  when: "os_conf_dir != vars[os_home + '/config']"
 
 - name: OpenSearch Install | Create data directory
   file:
